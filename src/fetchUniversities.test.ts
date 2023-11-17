@@ -10,4 +10,13 @@ describe("fetchUniversities", () => {
       assert(result.every(x => typeof x === "string")); // Assert each element in the array is a string
     });
   });
+
+  it("follows type length", () => {
+    const promise = fetchUniversities("University of Massachusetts at Amherst");
+
+    return promise.then(result => {
+      assert(Array.isArray(result));
+      assert(result.every(x => x.length === 0));
+    });
+  });
 });
