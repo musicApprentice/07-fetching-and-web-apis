@@ -21,7 +21,7 @@ describe("fetchUniversities", () => {
   });
 
   it("hundles multiple results", () => {
-    const promise = fetchUniversities("University");
+    const promise = fetchUniversities("Amherst");
 
     return promise.then(result => {
       assert(Array.isArray(result));
