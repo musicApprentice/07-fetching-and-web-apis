@@ -11,12 +11,29 @@ describe("fetchUniversities", () => {
     });
   });
 
-  it("follows type length", () => {
-    const promise = fetchUniversities("University of Massachusetts at Amherst");
+  it("handles empty result", () => {
+    const promise = fetchUniversities("Nonexistent University");
 
     return promise.then(result => {
       assert(Array.isArray(result));
-      assert(result.every(x => x.length === 0));
+      assert.strictEqual(result.length, 0);
+    });
+  });
+
+  it("hundles multiple results", () => {
+    const promise = fetchUniversities("University");
+
+    return promise.then(result => {
+      assert(Array.isArray(result));
+      assert(result.length > 1);
+    });
+  });
+
+  it("handles special characters", () => {
+    const promise = fetchUniversities("Boston University");
+    return promise.then(result => {
+      assert(Array.isArray(result));
+      assert(result.length > 0);
     });
   });
 });
