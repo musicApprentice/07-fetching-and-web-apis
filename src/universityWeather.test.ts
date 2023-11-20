@@ -33,7 +33,7 @@ describe("fetchUMassWeather", () => {
 
 describe("fetchUniversityWeather", () => {
   it("follows type specification", () => {
-    const promise = feathUniversityWeather();
+    const promise = fetchUniversityWeather();
 
     return promise.then(result => {
       assert(typeof result === "object");
