@@ -59,6 +59,9 @@ export function fetchUniversityWeather(
 }
 // return new Promise(res => res({ totalAverage: NaN }));
 
+
+
+//The university name in the coordinate database differs from the name in the university database. This can happen in other cases too.
 export function fetchUMassWeather(): Promise<AverageTemperatureResults> {
   // TODO
   return fetchUniversityWeather("University of Massachusetts", (name: string) => name.replace("at", ""));
