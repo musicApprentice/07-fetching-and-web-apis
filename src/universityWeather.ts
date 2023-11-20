@@ -31,7 +31,7 @@ export function fetchUniversityWeather(
     const coordPromise = newName.map(name => fetchGeoCoord(name)); // get coord list
     return Promise.all(coordPromise)  // make sure all promise inside coordPromise is fulfilled
       .then(coord => {
-        const tempPromise = coord.map(coor => fetchCurrentTemperature(coor)); // get tempture for each coord
+        const tempPromise = coord.map(coor => fetchCurrentTemperature(coor)); // get temperature for each coord
         return Promise.all(tempPromise);// make sure all fulfilled
       })
       /*{

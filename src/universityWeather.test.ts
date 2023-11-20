@@ -1,5 +1,5 @@
 import assert from "assert";
-import { fetchUCalWeather, fetchUMassWeather } from "./universityWeather.js";
+import { fetchUCalWeather, fetchUMassWeather, fetchUniversityWeather} from "./universityWeather.js";
 
 // 1000ms
 const SECOND = 1000;
@@ -21,6 +21,19 @@ describe("fetchUCalWeather", () => {
 describe("fetchUMassWeather", () => {
   it("follows type specification", () => {
     const promise = fetchUMassWeather();
+
+    return promise.then(result => {
+      assert(typeof result === "object");
+      assert(Object.keys(result).every(x => typeof x === "string"));
+      assert(Object.values(result).every(x => typeof x === "number"));
+    });
+  });
+});
+
+
+describe("fetchUniversityWeather", () => {
+  it("follows type specification", () => {
+    const promise = feathUniversityWeather();
 
     return promise.then(result => {
       assert(typeof result === "object");
