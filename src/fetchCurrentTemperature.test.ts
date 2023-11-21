@@ -11,6 +11,7 @@ describe("fetchCurrentTemperature", () => {
       assert(result.time.every(x => typeof x === "string")); // Assert each element in that time is a sting
       assert(Array.isArray(result.temperature_2m)); // Assert the result as an array temperature_2m field
       assert(result.temperature_2m.every(x => typeof x === "number")); // Assert each element in that time is a number
+      assert(result.time.length === 168);
     });
   });
 });

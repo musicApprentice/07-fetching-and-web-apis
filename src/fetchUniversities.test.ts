@@ -1,5 +1,8 @@
 import assert from "assert";
 import { fetchUniversities } from "./fetchUniversities.js";
+const SECOND = 1000;
+// 30 second timeout
+jest.setTimeout(30 * SECOND);
 
 describe("fetchUniversities", () => {
   it("follows type specification", () => {
