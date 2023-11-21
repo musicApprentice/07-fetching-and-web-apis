@@ -16,6 +16,7 @@ This cycle continues until the user exits.
 
 import fetch from 'node-fetch';
 import readline from 'readline';
+import assert from 'assert'
 
 interface Joke {
   id: number;
@@ -51,6 +52,7 @@ function promptForJokeOption() {
       const isSingleJoke = option.toLowerCase() === 'random';
       fetchJokes(isSingleJoke)
         .then(jokes => {
+          assert(Array.isArray(jokes))
           jokes.forEach((joke, index) => {
             console.log(`Joke ${index + 1}: (id: ${joke.id}) ${joke.setup} - ${joke.punchline}`);
           });
